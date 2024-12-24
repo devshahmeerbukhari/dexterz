@@ -22,7 +22,7 @@ function ContactPage() {
     console.log(data); // handle form submission
   };
 
-  const onError = (err: any) => {
+  const onError = (err: FieldValues) => {
     console.log(err); // handle form submission
   };
 

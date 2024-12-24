@@ -1,31 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
 import Image from "next/image"; // Import the Next.js Image component
+import { ImageSource } from "../../../../types/types";
+import { ProjectCardProps } from "../../../../types/types";
 
 // Create a builder instance for the Sanity client
 const builder = imageUrlBuilder(client);
 
 // Define the type for props
-type ProjectCardProps = {
-  name: string;
-  description: string;
-  image: {
-    asset: {
-      _ref: string;
-      url: string;
-    };
-  };
-  slug: string;
-};
 
 // Define the urlFor function to return a proper URL with transformations
-const urlFor = (source: any) => builder.image(source).width(800).url();
+const urlFor = (source: ImageSource) => builder.image(source).width(800).url();
 
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, image, slug }) => {
-  const slugVal = slug
-  {console.log("SS",slugVal)}
+  // const slugVal = slug
+  // {console.log("SS",slugVal)}
   return (
     <div className="border rounded-lg p-4">
       {/* Project Image */}

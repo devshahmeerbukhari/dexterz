@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../projectsCard/page";
 import { client } from "@/sanity/lib/client";
+import { Project } from "../../../../types/types";
 
 function ProjectPage() {
-  const [projects, setProjects] = useState<any[]>([]); // Initialize with an empty array
+  const [projects, setProjects] = useState<Project[]>([]); // Initialize with an empty array
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +26,7 @@ function ProjectPage() {
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-4 lg:mx-20 m-28">
         {projects.length > 0 ? (
-          projects.map((project: any, index: any) => (
+          projects.map((project: Project, index: number) => (
             <ProjectCard
               key={index}
               name={project.name}

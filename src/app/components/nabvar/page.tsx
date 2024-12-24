@@ -1,7 +1,6 @@
 'use client'
 import { useState } from "react";
 import Link from "next/link";
-import AboutPage from "../about/page";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
