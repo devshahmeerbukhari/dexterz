@@ -1,9 +1,10 @@
 import React from "react";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import XIcon from '@mui/icons-material/X';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookIcon from "@mui/icons-material/Facebook";
+import XIcon from "@mui/icons-material/X";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import Link from "next/link"; // Importing Link for client-side navigation
+import Image from "next/image";
 
 function Footer() {
   return (
@@ -12,11 +13,14 @@ function Footer() {
         {/* Logo and Description */}
         <div>
           <div className="flex items-center space-x-2">
-            <img
+            <Image
               src="/assets/images/logo/dexterzsol_logo.png"
               alt="Dexterz Sol Logo"
+              width={96} // Adjust width as per your requirements
+              height={96} // Adjust height as per your requirements
               className="h-24 w-auto object-contain"
             />
+
             <h1 className="text-2xl font-bold">Dexterz Sol</h1>
           </div>
           <p className="mt-4 text-gray-400">

@@ -5,6 +5,7 @@ import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Service } from "../../../../../types/types";
 import { ImageSource } from "../../../../../types/types";
+import Image from "next/image";
 
 // Create a builder instance for the Sanity client
 const builder = imageUrlBuilder(client);
@@ -40,19 +41,21 @@ const ServicesDetails = () => {
   console.log("POPOP: ", projects);
   useEffect(() => {
     if (slug && projects.length > 0) {
-      const dataFind = projects.find((data: Service) => data.slug.current === slug);
+      const dataFind = projects.find(
+        (data: Service) => data.slug.current === slug
+      );
       setProject(dataFind || null); // Set the project or null if not found
     }
   }, [slug, projects]);
 
-  const urlFor = (source: ImageSource) => builder.image(source).width(800).url();
+  const urlFor = (source: ImageSource) =>
+    builder.image(source).width(800).url();
 
   return (
     <div className="min-h-screen m-5 my-20 flex flex-col lg:flex-row">
       {/* Main Content */}
       <div className="flex-1 p-4 lg:p-10">
         <div className="bg-white min-h-[70vh] shadow-md rounded-lg p-4 lg:p-6">
-
           {project ? (
             <div>
               <h2 className="text-lg lg:text-2xl font-semibold text-gray-700 mb-4">
@@ -60,10 +63,13 @@ const ServicesDetails = () => {
               </h2>
               {project.image?.asset ? (
                 <div className="relative overflow-hidden rounded-lg mb-6 w-full sm:w-[400px] sm:h-[400px] lg:w-[40%] lg:h-auto">
-                  <img
+                  <Image
                     src={urlFor(project.image.asset)} // Passing the asset object
-                    alt={project?.name}
+                    alt={project?.name || "Service Image"}
+                    width={800} // Set the width according to your design
+                    height={600} // Set the height according to your design
                     className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
+                    priority // This prioritizes the image loading
                   />
                 </div>
               ) : (

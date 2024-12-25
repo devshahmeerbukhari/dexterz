@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { ImageSource } from "../../../../../types/types";
+import Image from "next/image";
 // Importing types
 import { Project } from "../../../../../types/types";
 
@@ -64,10 +65,13 @@ const Details = () => {
               </h2>
               {project.image?.asset ? (
                 <div className="relative overflow-hidden rounded-lg mb-6 w-full sm:w-[400px] sm:h-[400px] lg:w-[40%] lg:h-auto">
-                  <img
-                    src={urlFor(project.image.asset)} // Passing the asset object
-                    alt={project?.name}
+                  <Image
+                    src={urlFor(project.image.asset)}
+                    alt={project?.name || "Project Image"}
+                    width={400} // You can set this as per your design
+                    height={400} // You can set this as per your design
                     className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
+                    priority // This prioritizes the image loading
                   />
                 </div>
               ) : (

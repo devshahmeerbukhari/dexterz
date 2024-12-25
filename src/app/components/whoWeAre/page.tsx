@@ -1,5 +1,6 @@
-'use client'
+"use client";
 import React from "react";
+import Image from "next/image"; // Import the Image component from Next.js
 
 const WhoWeAre = () => {
   return (
@@ -7,11 +8,14 @@ const WhoWeAre = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Image */}
         <div>
-          <img
-            src="/assets/images/logo/building.jpg" // In Next.js, static assets are served from the public folder
+          <Image
+            src="/assets/images/logo/building.jpg"
             alt="Building"
             className="rounded-lg shadow-lg"
-            width="500px"
+            width={500} // Set width
+            height={300} // Set height
+            style={{ width: "auto", height: "auto" }} // Maintain aspect ratio
+            priority
           />
         </div>
 
