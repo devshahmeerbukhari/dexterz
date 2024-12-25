@@ -51,7 +51,7 @@ const ServicesDetails = () => {
     <div className="min-h-screen m-5 my-20 flex flex-col lg:flex-row">
       {/* Main Content */}
       <div className="flex-1 p-4 lg:p-10">
-        <div className="bg-white shadow-md rounded-lg p-4 lg:p-6">
+        <div className="bg-white min-h-[70vh] shadow-md rounded-lg p-4 lg:p-6">
 
           {project ? (
             <div>

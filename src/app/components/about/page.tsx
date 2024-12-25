@@ -6,16 +6,18 @@ import WhyChooseUs from "../whyChooseUs/page";
 function AboutPage() {
   return (
     <>
-      <div className="flex items-center justify-center min-h-[80vh] mt-16 mx-auto px-4 w-full max-w-[70%]">
+      <div className="flex items-center justify-center min-h-[80vh] my-16 mx-auto px-4 w-full max-w-[70%]">
         <div className="flex flex-col lg:flex-row items-center gap-10 w-full">
           {/* Logo Section */}
           <div className="flex-shrink-0 w-full lg:w-auto">
-            <Image
+          <Image
               src="/assets/images/logo/deal-done.jpg"
               alt="Deal-done Logo"
-              className="h-auto max-h-[50vh] object-contain mx-auto lg:mx-0"
-              width={600} // Adjust width based on your requirement
-              height={400} // Adjust height based on your requirement
+              className="h-auto object-contain mx-auto lg:mx-0"
+              width={800} // Maintain the current size
+              height={600} // Maintain the current size
+              style={{ width: "auto", height: "auto" }} // Ensure aspect ratio is maintained
+              priority // Optimize LCP performance
             />
           </div>
 

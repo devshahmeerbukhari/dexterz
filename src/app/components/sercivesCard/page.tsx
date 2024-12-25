@@ -13,8 +13,12 @@ const builder = imageUrlBuilder(client);
 // Define the urlFor function to return a proper URL with transformations
 const urlFor = (source: ImageSource) => builder.image(source).width(800).url();
 
-
-const ServicesCard: React.FC<ServicesCardProp> = ({ name, description, image, slug }) => {
+const ServicesCard: React.FC<ServicesCardProp> = ({
+  name,
+  description,
+  image,
+  slug,
+}) => {
   return (
     <div className="border rounded-lg p-4">
       {/* Project Image */}
@@ -24,9 +28,10 @@ const ServicesCard: React.FC<ServicesCardProp> = ({ name, description, image, sl
           <Image
             src={urlFor(image.asset)} // Generate the image URL
             alt={name}
-            layout="fill" // Ensures the image fills its container
-            objectFit="cover" // Maintains aspect ratio while filling
-            className="rounded-md transition-transform duration-300 ease-in-out transform hover:scale-105"
+            fill // Make the image fill the parent container
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Define sizes for responsive behavior
+            priority // Optimize loading for LCP
+            className="rounded-md object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
           />
         </div>
       ) : (
